@@ -8,6 +8,22 @@
   "files": [
     "dist/*"
   ],
+  "keywords": [
+    "mduash",
+    "tools",
+    "utils",
+    "plugins",
+    "typescript",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jamartin-create/mduash"
+  },
+  "bugs": {
+    "url": "https://github.com/Jamartin-create/mduash/issues",
+    "email": "lilmartin@163.com"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
