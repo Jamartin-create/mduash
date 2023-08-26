@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import { expressjwt } from "express-jwt";
 
 /**
  * @description JWT 校验相关工具
@@ -18,22 +17,6 @@ export class JWT {
   constructor(salt: string, expires?: string) {
     this.salt = salt;
     this.expires = expires;
-  }
-
-  /**
-   * @description 生成 node 中间件，快捷校验
-   * @param options expressJWT 配置项
-   * @param passurl 不进行娇艳的 URL
-   * @returns
-   */
-  public node_mid_jwt(options: any, passurl: RegExp[]): Function {
-    delete options.secret; // 不允许外部修改盐值
-    return expressjwt({
-      secret: this.salt,
-      requestProperty: "auth",
-      algorithms: ["HS256"],
-      ...options,
-    }).unless({ path: passurl });
   }
 
   /**
