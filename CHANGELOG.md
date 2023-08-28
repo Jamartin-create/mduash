@@ -1,7 +1,10 @@
-## <small>1.1.3 (2023-08-26)</small>
+## <small>1.1.5 (2023-08-28)</small>
 
-- 🐞 fix(jwt): 部分模块报错异常 ([e0961cf](https://github.com/Jamartin-create/mduash/commit/e0961cf))
-- 🔧 build(tsc): 废除 vite，使用 tsc ([44c51db](https://github.com/Jamartin-create/mduash/commit/44c51db))
+* ✨ feat(decorator): 新增 router 装饰器 ([e385898](https://github.com/Jamartin-create/mduash/commit/e385898))
+* 🐞 fix(jwt): 部分模块报错异常 ([e0961cf](https://github.com/Jamartin-create/mduash/commit/e0961cf))
+* 🐳 chore(rimraf): 依赖新增 ([871ad5e](https://github.com/Jamartin-create/mduash/commit/871ad5e))
+* 📃 docs(changelog): 开发日志更新 ([d365894](https://github.com/Jamartin-create/mduash/commit/d365894))
+* 🔧 build(tsc): 废除 vite，使用 tsc ([44c51db](https://github.com/Jamartin-create/mduash/commit/44c51db))
 
 ## <small>1.1.1 (2023-08-26 before)</small>
 
