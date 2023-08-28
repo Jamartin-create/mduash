@@ -18,14 +18,14 @@ type T_METHOD_KEYS = {
   [key in T_METHOD_KEY]: T_METHOD
 }
 
-export const METHOD_KEYS: T_METHOD_KEYS = {
+const METHOD_KEYS: T_METHOD_KEYS = {
   GET: 'get',
   POST: 'post',
   DELETE: 'delete',
   PUT: 'put',
 }
 
-export const META_KEYS = {
+const META_KEYS = {
   PATH: 'PATH',
   METHOD: 'METHOD',
 }
@@ -49,7 +49,7 @@ export function Controller(prefix: string) {
 }
 
 // @[Method]
-export function createMethod(method: T_METHOD) {
+function createMethod(method: T_METHOD) {
   return function (path: string) {
     return function (target: any, protoMehodName: string, _: any) {
       Reflect.defineMetadata(META_KEYS.METHOD, method, target, protoMehodName)
@@ -59,6 +59,6 @@ export function createMethod(method: T_METHOD) {
 }
 
 export const Get = createMethod(METHOD_KEYS.GET)
-export const POST = createMethod(METHOD_KEYS.POST)
-export const PUT = createMethod(METHOD_KEYS.PUT)
-export const DELETE = createMethod(METHOD_KEYS.DELETE)
+export const Post = createMethod(METHOD_KEYS.POST)
+export const Put = createMethod(METHOD_KEYS.PUT)
+export const Delete = createMethod(METHOD_KEYS.DELETE)
