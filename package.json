@@ -1,7 +1,7 @@
 {
   "name": "mduash",
   "private": false,
-  "version": "1.1.6",
+  "version": "1.1.9",
   "author": "lilMartin",
   "main": "lib/index.js",
   "files": [
@@ -9,7 +9,7 @@
   ],
   "exports": {
     ".": "./lib/index.js",
-    "./decorator": "./lib/decorators/index.js"
+    "./lib/decorators": "./lib/decorators/index.js"
   },
   "keywords": [
     "mduash",
