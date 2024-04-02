@@ -1,21 +1,21 @@
-import { MError } from './exception'
+import { MError } from "./exception";
 
 // 普通数值返回值类型
 export type ResultType<T> = {
-  code: number
-  msg: string
-  data?: T
-}
+  code: number;
+  msg: string;
+  data?: T;
+};
 
 // 分页数据类型
 export type PageType = {
-  total: number
-  limit: number
-  offset: number
-}
+  total: number;
+  limit: number;
+  offset: number;
+};
 
 // 分页数据返回类型
-export type PageResultType<T> = ResultType<T> | PageType
+export type PageResultType<T> = ResultType<T> | PageType;
 
 /**
  * @description 成功请求返回的数据格式
@@ -29,9 +29,9 @@ export function SuccessRes<T>(
 ): ResultType<T> {
   return {
     code: 0,
-    msg: msg || 'success',
+    msg: msg || "success",
     data: data,
-  }
+  };
 }
 
 /**
@@ -44,7 +44,7 @@ export function ErrorRes(error: Error): ResultType<null> {
     code: error instanceof MError ? error.code : -1,
     msg: error instanceof MError ? error.msg : error.message,
     data: null,
-  }
+  };
 }
 
 /**
@@ -59,9 +59,9 @@ export function PageSuccessRes<T>(
   pageInfo: PageType,
   msg?: string
 ): PageResultType<T> {
-  const result = SuccessRes<T[]>(data, msg)
+  const result = SuccessRes<T[]>(data, msg);
   return {
     ...result,
     ...pageInfo,
-  }
+  };
 }
