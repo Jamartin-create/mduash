@@ -1,3 +1,4 @@
+import { expressjwt } from 'express-jwt'
 import jwt from 'jsonwebtoken'
 
 /**
@@ -43,5 +44,17 @@ export class JWT {
         } catch (e) {
             return false
         }
+    }
+
+    /**
+     * 用于 Express 中间件
+     * @description 最终会挂载在请求的 auth 属性上，哈希算法 HS256
+     */
+    public getExpressMidware(passUrl: string[]): any {
+        return expressjwt({
+            secret: this.salt,
+            requestProperty: 'auth',
+            algorithms: ['HS256']
+        }).unless({ path: passUrl })
     }
 }
