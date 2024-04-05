@@ -1,14 +1,16 @@
-## <small>1.1.11 (2024-04-05)</small>
+## 2.0.0 (2024-04-05)
 
--   ✨ feat(decorator): 新增 router 装饰器 ([e385898](https://github.com/Jamartin-create/mduash/commit/e385898))
+-   🐳 chore(prettier): 引入代码格式化 ([c9461a5](https://github.com/Jamartin-create/mduash/commit/c9461a5))
+-   🦄 refactor(refactor): module code refector ([4b28a40](https://github.com/Jamartin-create/mduash/commit/4b28a40))
+-   🦄 refactor(struct): 代码结构优化 ([a746720](https://github.com/Jamartin-create/mduash/commit/a746720))
+
+## <small>1.1.11 (2023-12-20)</small>
+
 -   ✨ feat(utils): 新增 await-to-js 插件 ([94ec359](https://github.com/Jamartin-create/mduash/commit/94ec359))
 -   🐞 fix(build): 修复配置异常问题 ([9c8bb76](https://github.com/Jamartin-create/mduash/commit/9c8bb76))
 -   🐞 fix(export): 修复以别名导入异常 ([6281400](https://github.com/Jamartin-create/mduash/commit/6281400))
--   🐳 chore(prettier): 引入代码格式化 ([c9461a5](https://github.com/Jamartin-create/mduash/commit/c9461a5))
 -   🐳 chore(version): 版本更新 publish ([6a12f6c](https://github.com/Jamartin-create/mduash/commit/6a12f6c))
 -   🔧 build(decorators): 发包配置（子包导出） ([38a42cb](https://github.com/Jamartin-create/mduash/commit/38a42cb))
--   🦄 refactor(refactor): module code refector ([4b28a40](https://github.com/Jamartin-create/mduash/commit/4b28a40))
--   🦄 refactor(struct): 代码结构优化 ([a746720](https://github.com/Jamartin-create/mduash/commit/a746720))
 
 ## <small>1.1.5 (2023-08-28)</small>
 
