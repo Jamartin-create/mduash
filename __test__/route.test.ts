@@ -1,51 +1,40 @@
 import { generatorMError } from '../src/modules/exception'
-import { ErrorRes, PageSuccessRes, SuccessRes } from '../src/modules/route'
+import { MResponse } from '../src/modules/route'
+
+const MR = new MResponse()
 
 describe('Success response test', () => {
-  test('Data & msg', () => {
-    expect(SuccessRes<{ name: string }>({ name: 'ddd' }, 'some msg')).toEqual({
-      code: 0,
-      msg: 'some msg',
-      data: { name: 'ddd' },
+    test('Data & msg', () => {
+        expect(
+            MR.success<{ name: string }>({ name: 'ddd' }, 'some msg')
+        ).toEqual({
+            code: 0,
+            msg: 'some msg',
+            data: { name: 'ddd' }
+        })
     })
-  })
-  test('Data &out msg', () => {
-    expect(SuccessRes<{ name: string }>({ name: 'ddd' })).toEqual({
-      code: 0,
-      msg: 'success',
-      data: { name: 'ddd' },
+    test('Data &out msg', () => {
+        expect(MR.success<{ name: string }>({ name: 'ddd' })).toEqual({
+            code: 0,
+            msg: 'success',
+            data: { name: 'ddd' }
+        })
     })
-  })
-})
-
-describe('Page response test', () => {
-  test('Data & pageInfo', () => {
-    expect(
-      PageSuccessRes([1, 2, 3], { total: 3, limit: 3, offset: 0 })
-    ).toEqual({
-      code: 0,
-      msg: 'success',
-      data: [1, 2, 3],
-      offset: 0,
-      limit: 3,
-      total: 3,
-    })
-  })
 })
 
 describe('Error response test', () => {
-  test('MDU-Error', () => {
-    expect(ErrorRes(generatorMError(90001, 'MDUError msg'))).toEqual({
-      code: 90001,
-      msg: 'MDUError msg',
-      data: null,
+    test('MDU-Error', () => {
+        expect(MR.error(generatorMError(90001, 'MDUError msg'))).toEqual({
+            code: 90001,
+            msg: 'MDUError msg',
+            data: null
+        })
     })
-  })
-  test('Error', () => {
-    expect(ErrorRes(new Error('Error msg'))).toEqual({
-      code: -1,
-      msg: 'Error msg',
-      data: null,
+    test('Error', () => {
+        expect(MR.error(new Error('Error msg'))).toEqual({
+            code: -1,
+            msg: 'Error msg',
+            data: null
+        })
     })
-  })
 })

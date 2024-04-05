@@ -1,32 +1,47 @@
-/**
- * @description 校验参数
- * @param {String} data 被校验的字符串
- * @param {String} type 可选值：email、phone
- * @returns
- */
-export function validateParam(data: string, type: "email" | "phone") {
-  if (type === "email") {
-    return new RegExp(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(
-      data
-    );
-  } else if (type === "phone") {
-    return new RegExp(
-      /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/
-    ).test(data);
-  } else {
-    return false;
-  }
-}
+import jwt from 'jsonwebtoken'
 
 /**
- * @description 生成 guid
- * @returns {string}
+ * @description JWT 校验相关工具
  */
-export function guid() {
-  let d = new Date().getTime();
-  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {
-    let r = (d + Math.random() * 16) % 16 | 0;
-    d = Math.floor(d / 16);
-    return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
-  });
+export class JWT {
+    /** @description 盐值 */
+    private salt: string
+    /** @description 有效期  */
+    private expires: string | undefined // 默认24h
+
+    /**
+     * @constructor
+     * @param salt 盐值
+     * @param expires 有效期
+     */
+    constructor(salt: string, expires?: string) {
+        this.salt = salt
+        this.expires = expires
+    }
+
+    /**
+     * @description 注册token
+     * @param data 要加密的数据
+     * @param options jwt 配置项
+     * @returns
+     */
+    public sign(data: any, options: jwt.SignOptions): string {
+        return jwt.sign(data, this.salt, {
+            expiresIn: this.expires || '24h',
+            ...options
+        })
+    }
+
+    /**
+     * @description 验证 token
+     * @param token 要验证的 token
+     * @returns
+     */
+    public verify(token: string): boolean | string | jwt.JwtPayload {
+        try {
+            return jwt.verify(token, this.salt)
+        } catch (e) {
+            return false
+        }
+    }
 }
