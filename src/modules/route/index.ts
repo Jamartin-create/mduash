@@ -1,6 +1,6 @@
-import { ErrorCode } from '../utils/errorCode'
-import { MError } from './exception'
-import { Is } from './utils'
+import { ErrorCode } from '../../utils/errorCode'
+import { MError } from '../exception'
+import { Is } from '../utils'
 
 // 普通数值返回值类型
 export type MResponseType<T> = {
