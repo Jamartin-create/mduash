@@ -29,8 +29,7 @@
   },
   "scripts": {
     "dev": "nodemon",
-    "build": "vite build",
-    "preview": "vite preview",
+    "build": "rimraf lib && tsc --outDir lib --module CommonJS",
     "changelog": "conventional-changelog -p -i CHANGELOG.md -s",
     "test": "jest"
   },
